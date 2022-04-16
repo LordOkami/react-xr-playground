@@ -15,7 +15,7 @@
     "react-scripts": "4.0.0",
     "seed-random": "2.2.0",
     "styled-components": "5.3.5",
-    "three": "0.134.0"
+    "three": "^0.139.2"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",

@@ -1,7 +1,6 @@
 import usePromise from "react-promise-suspense";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
 const dracoDecoderPath =

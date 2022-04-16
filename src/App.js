@@ -4,13 +4,15 @@ import { DoubleSide } from "three";
 import { VRCanvas, DefaultXRControllers, RayGrab } from "@react-three/xr";
 
 import TeleportTravel from "./TeleportTravel";
-import BallPit from "./Ballpit";
 import Loading from "./Loading";
 
 import MovementController from "./MovementController";
 
 import Room from "./components/Room";
+import Duck from "./components/Duck";
+
 import { OrbitControls, Sky } from "@react-three/drei";
+import HitTestExample from "./components/HitTestExample";
 
 function Floor(props) {
   return (
@@ -23,10 +25,16 @@ function Floor(props) {
 
 export default function App() {
   return (
-    <VRCanvas>
-      <TeleportTravel useNormal={true}>
-        <Floor rotation={[-Math.PI / 2, 0, 0]} />
-      </TeleportTravel>
+    <VRCanvas sessionInit={{ requiredFeatures: ['hit-test'] }}>
+      <Suspense fallback={<Loading />}>
+        {
+          [...Array(8)].map((_, n) => {
+            return <Duck position={[-4 + n*2, 0, -10]} size={[1, 1, 1]} />
+          })
+        }
+      </Suspense>
+      <HitTestExample />
+      {/* CONTROLLERS */}
       <MovementController />
       <MovementController
         hand="left"
@@ -34,8 +42,10 @@ export default function App() {
         applyHorizontal={true}
       />
       <DefaultXRControllers />
-      {/* <BallPit position={[0, 3, 0]} /> */}
-      {/* <Cage /> */}
+      <TeleportTravel useNormal={true}>
+        <Floor rotation={[-Math.PI / 2, 0, 0]} />
+      </TeleportTravel>
+      {/* LIGHTS */}
       <Sky
         distance={3000}
         turbidity={8}
@@ -46,10 +56,8 @@ export default function App() {
         sunPosition={[1, 0, 0]}
       />
       <ambientLight />
-      <directionalLight />
-      <Suspense fallback={<Loading />}>
-        <Room position={[0, 5, 0]} />
-      </Suspense>
+      <directionalLight position={[1, 1, 0]} color="#ffd738" />
+      <pointLight position={[10, 10, 10]} />
       <OrbitControls />
     </VRCanvas>
   );
