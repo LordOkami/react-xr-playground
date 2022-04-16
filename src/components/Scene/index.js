@@ -1,14 +1,11 @@
-import "./styles.css";
 import { Suspense } from "react";
-import { DoubleSide } from "three";
 import { VRCanvas, DefaultXRControllers, RayGrab } from "@react-three/xr";
 
-import TeleportTravel from "./TeleportTravel";
+import TeleportTravel from "../Interaction/TeleportTravel";
 import Loading from "./Loading";
 
-import MovementController from "./components/Interaction/MovementController";
+import MovementController from "../Interaction/MovementController";
 
-import Room from "./components/Room";
 import Duck from "./components/Duck";
 
 import { OrbitControls, Sky } from "@react-three/drei";
