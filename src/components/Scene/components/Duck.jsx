@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { useGLTF } from "hooks/useModel";
+import { useGLTF } from "../../../hooks/useModel";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils";
 // import { useGraph } from '@react-three/fiber'
 
