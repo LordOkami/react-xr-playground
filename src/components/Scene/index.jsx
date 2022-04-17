@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { VRCanvas, DefaultXRControllers, RayGrab } from "@react-three/xr";
 
-import TeleportTravel from "../Interaction/TeleportTravel";
+import TeleportTravel from "./components/Interaction/TeleportTravel";
 import Loading from "./Loading";
 
-import MovementController from "../Interaction/MovementController";
+import MovementController from "./components/Interaction/MovementController";
 
 import Duck from "./components/Duck";
 
