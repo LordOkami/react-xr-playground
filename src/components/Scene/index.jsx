@@ -22,7 +22,8 @@ function Floor(props) {
 
 export default function App() {
   return (
-    <VRCanvas sessionInit={{ requiredFeatures: ['hit-test'] }}>
+    // sessionInit={{ requiredFeatures: ['hit-test'] }}
+    <VRCanvas >
       <Suspense fallback={<Loading />}>
         {
           [...Array(8)].map((_, n) => {
@@ -55,7 +56,7 @@ export default function App() {
       <ambientLight />
       <directionalLight position={[1, 1, 0]} color="#ffd738" />
       <pointLight position={[10, 10, 10]} />
-      <OrbitControls />
+      {/* <OrbitControls /> */}
     </VRCanvas>
   );
 }
