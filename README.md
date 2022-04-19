@@ -1,2 +1,3 @@
-# lost-my-keys-vr
+# React XR Playground
+
 Created with CodeSandbox
