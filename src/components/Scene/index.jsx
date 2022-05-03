@@ -1,5 +1,5 @@
 import { Suspense, useRef } from "react";
-import { VRCanvas, DefaultXRControllers, useHitTest } from "@react-three/xr";
+import { VRCanvas, DefaultXRControllers } from "@react-three/xr";
 
 import TeleportTravel from "./components/Interaction/TeleportTravel";
 import Loading from "./Loading";
@@ -19,17 +19,8 @@ function Floor(props) {
   );
 }
 
-function HitTestExample() {
-  const ref = useRef();
 
-  useHitTest(hit => {
-    hit.decompose(ref.current.position, ref.current.rotation, ref.current.scale);
-  });
-
-  return <Box ref={ref} args={[0.1, 0.1, 0.1]} />;
-}
 export default function App() {
-  useHitTest();
   return (
     // sessionInit={{ requiredFeatures: ['hit-test'] }}
     <VRCanvas>
@@ -38,7 +29,6 @@ export default function App() {
           return <Duck position={[-4 + n * 2, 0, -10]} size={[1, 1, 1]} />;
         })}
       </Suspense>
-      <HitTestExample />
       {/* CONTROLLERS */}
       <MovementController />
       <MovementController hand='left' applyRotation={false} applyHorizontal={true} />
