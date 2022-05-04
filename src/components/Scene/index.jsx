@@ -19,13 +19,11 @@ function Floor(props) {
   );
 }
 
-
 export default function App() {
   return (
-    // sessionInit={{ requiredFeatures: ['hit-test'] }}
     <VRCanvas>
       <Suspense fallback={<Loading />}>
-        {[...Array(8)].map((_, n) => {
+        {[...Array(12)].map((_, n) => {
           return <Duck position={[-4 + n * 2, 0, -10]} size={[1, 1, 1]} />;
         })}
       </Suspense>
@@ -33,7 +31,7 @@ export default function App() {
       <MovementController />
       <MovementController hand='left' applyRotation={false} applyHorizontal={true} />
       <DefaultXRControllers />
-      <TeleportTravel useNormal={true}>
+      <TeleportTravel useNormal={false}>
         <Floor rotation={[-Math.PI / 2, 0, 0]} />
       </TeleportTravel>
       {/* LIGHTS */}
@@ -41,7 +39,8 @@ export default function App() {
       <ambientLight />
       <directionalLight position={[1, 1, 0]} color='#ffd738' />
       <pointLight position={[10, 10, 10]} />
-      {/* <OrbitControls /> */}
+      {/* CONTROLS WHEN NOT VR */}
+      <OrbitControls />
     </VRCanvas>
   );
 }

@@ -8,7 +8,6 @@ const glbUrl = "/objects/duck.glb";
 const Duck = ({ ...props }) => {
   const { scene, materials, animations } = useGLTF(glbUrl);
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
-  // const { nodes } = useGraph(clone);
 
   return (
     <primitive object={clone} dispose={null} {...props} />
