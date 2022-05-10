@@ -7,6 +7,7 @@ import Loading from "./Loading";
 import MovementController from "./components/Interaction/MovementController";
 
 import Duck from "./components/Duck";
+import BakedRoom from "./components/BakedRoom";
 
 import { OrbitControls, Sky, Box } from "@react-three/drei";
 
@@ -24,8 +25,9 @@ export default function App() {
     <VRCanvas>
       <Suspense fallback={<Loading />}>
         {[...Array(12)].map((_, n) => {
-          return <Duck position={[-4 + n * 2, 0, -10]} size={[1, 1, 1]} />;
+          return <Duck index={n} position={[-4 + n * 2, 0, -10]} size={[1, 1, 1]} />;
         })}
+        <BakedRoom />
       </Suspense>
       {/* CONTROLLERS */}
       <MovementController />
